@@ -1,18 +1,17 @@
 const { Router } = require('express');
 
+// route controllers
 const checkToken = require('../controllers/checkToken');
 const getMailFromDB = require('../controllers/getMailFromDB');
 const getNewMail = require('../controllers/getNewMail');
 
+// route middleware
 const verifyTokenMiddleware = require('../controllers/middleware/verifyToken');
 
 const secureRoutes = Router();
 
 /*
 ** validation middleware
-**
-** this middleware will be run BEFORE our route logic is hit below
-** it will of course only run on routes defined with "serverRoutes" variable
 */
 secureRoutes.use(verifyTokenMiddleware);
 
@@ -28,5 +27,6 @@ secureRoutes.get('/mail', getMailFromDB);
 
 // checks for new mail and indexes it in db
 secureRoutes.get('/newMail', getNewMail);
+
 
 module.exports = secureRoutes;
