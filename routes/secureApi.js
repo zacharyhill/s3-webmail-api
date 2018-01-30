@@ -1,8 +1,14 @@
 const jwt = require('jsonwebtoken');
 const Mail = require('../models/mail');
 const { Router } = require('express');
+const s3etm = require('s3-emails-to-mongo');
 
 const secureRoutes = Router();
+
+// MAKE THIS PART DYNAMIC LATER
+s3etm.configure({
+  Bucket: 'zhillb-mail',
+});
 
 /*
 ** validation middleware
@@ -58,6 +64,16 @@ secureRoutes.get('/mail', async (req, res) => {
     res.json(allMail);
   } catch(err) {
     next(err); // pass onto next middleware function
+  }
+});
+
+// checks for new mail and indexes it in db
+secureRoutes.get('/newMail', async (req, res) => {
+  try {
+    const newMail = await s3etm();
+    res.json(newMail);
+  } catch(err) {
+    net(err);
   }
 });
 
