@@ -1,0 +1,21 @@
+{
+  "name": "s3-webmail-backend",
+  "version": "1.0.0",
+  "description": "handles backend functions for s3-webmail",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "s3",
+    "webmail",
+    "aws"
+  ],
+  "author": "zachary hill <zach@zacharyhill.xyz>",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "mongoose": "^5.0.1"
+  }
+}
