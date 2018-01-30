@@ -17,7 +17,6 @@ const secureRoutes = Router();
 secureRoutes.use(verifyTokenMiddleware);
 
 
-
 /*
 ** START ROUTES
 */
