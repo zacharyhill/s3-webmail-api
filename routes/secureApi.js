@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const Mail = require('../models/mail');
 const { Router } = require('express');
 
 const secureRoutes = Router();
@@ -50,5 +51,14 @@ secureRoutes.get('/protected', (req, res) => {
   });
 });
 
+// gets mail already indexed in database
+secureRoutes.get('/mail', async (req, res) => {
+  try {
+    const allMail = await Mail.find({});
+    res.json(allMail);
+  } catch(err) {
+    next(err); // pass onto next middleware function
+  }
+});
 
 module.exports = secureRoutes;
