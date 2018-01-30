@@ -1,10 +1,8 @@
-const jwt = require('jsonwebtoken');
-const Mail = require('../models/mail');
 const { Router } = require('express');
-const s3etm = require('s3-emails-to-mongo');
 
 const getMailFromDB = require('../controllers/getMailFromDB');
 const checkToken = require('../controllers/checkToken');
+const getNewMail = require('../controllers/getNewMail');
 
 const verifyTokenMiddleware = require('../controllers/middleware/verifyToken');
 
@@ -35,13 +33,6 @@ secureRoutes.get('/checkToken', checkToken);
 secureRoutes.get('/mail', getMailFromDB);
 
 // checks for new mail and indexes it in db
-secureRoutes.get('/newMail', async (req, res) => {
-  try {
-    const newMail = await s3etm();
-    res.json(newMail);
-  } catch(err) {
-    net(err);
-  }
-});
+secureRoutes.get('/newMail', getNewMail);
 
 module.exports = secureRoutes;
