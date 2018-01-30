@@ -46,14 +46,19 @@ secureRoutes.use((req, res, next) => {
 });
 
 
-secureRoutes.get('/protected', (req, res) => {
+
+/*
+** START ROUTES
+*/
+// check if token has been verified 
+secureRoutes.get('/verifyToken', (req, res) => {
   /*
   ** this will only be reached if our middleware calls
   ** the next() argument - as it does when the token is
   ** set and verified
   */
   res.json({
-    message: 'successfully verified token',
+    verified: true,
   });
 });
 
