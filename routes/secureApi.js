@@ -3,6 +3,7 @@ const Mail = require('../models/mail');
 const { Router } = require('express');
 const s3etm = require('s3-emails-to-mongo');
 
+const getMailFromDB = require('./getMailFromDB');
 const verifyToken = require('./verifyToken');
 
 const secureRoutes = Router();
@@ -56,14 +57,7 @@ secureRoutes.use((req, res, next) => {
 secureRoutes.get('/verifyToken', verifyToken);
 
 // gets mail already indexed in database
-secureRoutes.get('/mail', async (req, res) => {
-  try {
-    const allMail = await Mail.find({});
-    res.json(allMail);
-  } catch(err) {
-    next(err); // pass onto next middleware function
-  }
-});
+secureRoutes.get('/mail', getMailFromDB);
 
 // checks for new mail and indexes it in db
 secureRoutes.get('/newMail', async (req, res) => {
