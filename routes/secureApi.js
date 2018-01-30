@@ -1,17 +1,12 @@
 const { Router } = require('express');
 
-const getMailFromDB = require('../controllers/getMailFromDB');
 const checkToken = require('../controllers/checkToken');
+const getMailFromDB = require('../controllers/getMailFromDB');
 const getNewMail = require('../controllers/getNewMail');
 
 const verifyTokenMiddleware = require('../controllers/middleware/verifyToken');
 
 const secureRoutes = Router();
-
-// MAKE THIS PART DYNAMIC LATER
-s3etm.configure({
-  Bucket: 'zhillb-mail',
-});
 
 /*
 ** validation middleware
