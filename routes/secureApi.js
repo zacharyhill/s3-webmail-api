@@ -4,7 +4,7 @@ const { Router } = require('express');
 const s3etm = require('s3-emails-to-mongo');
 
 const getMailFromDB = require('./getMailFromDB');
-const verifyToken = require('./verifyToken');
+const checkToken = require('./checkToken');
 
 const secureRoutes = Router();
 
@@ -54,7 +54,7 @@ secureRoutes.use((req, res, next) => {
 ** START ROUTES
 */
 // check if token has been verified 
-secureRoutes.get('/verifyToken', verifyToken);
+secureRoutes.get('/checkToken', checkToken);
 
 // gets mail already indexed in database
 secureRoutes.get('/mail', getMailFromDB);
