@@ -3,7 +3,7 @@ const Mail = require('../models/mail');
 const { Router } = require('express');
 const s3etm = require('s3-emails-to-mongo');
 
-const verifyToken = require('./routes/verifyToken');
+const verifyToken = require('./verifyToken');
 
 const secureRoutes = Router();
 
