@@ -1,4 +1,5 @@
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 
@@ -16,6 +17,7 @@ process.env.SECRET_KEY = 'my_secret_key';
 ** initialize app and connect to db
 */
 const app = express();
+app.use(cors()); // use CORS
 mongoose.connect('mongodb://localhost/' + dbName);
 
 /*
