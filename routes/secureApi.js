@@ -10,23 +10,40 @@ const verifyTokenMiddleware = require('../controllers/middleware/verifyToken');
 
 const secureRoutes = Router();
 
-/*
-** validation middleware
-*/
 secureRoutes.use(verifyTokenMiddleware);
 
 
 /*
-** START ROUTES
+** GET ROUTES
 */
 // check if token has been verified 
 secureRoutes.get('/checkToken', checkToken);
-
 // get mail already indexed in database
 secureRoutes.get('/mail', getMailFromDB);
-
 // check for new mail and index it in db
 secureRoutes.get('/newMail', getNewMail);
+// // get attachment
+// secureRoutes.get('/attachment', );
+
+/*
+** PATCH ROUTES
+*/
+// // mark as read/unread
+// secureRoutes.patch('/changeReadStatus', );
+
+/*
+** POST ROUTES
+*/
+// // send mail
+// secureRoutes.post('/mail', );
+// // upload attachment
+// secureRoutes.post('/attachment', );
+
+/*
+** DELETE ROUTES
+*/
+// // delete mail from db
+// secureRoutes.delete('/delete', );
 
 
 module.exports = secureRoutes;
