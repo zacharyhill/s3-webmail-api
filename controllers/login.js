@@ -6,7 +6,6 @@ async function authenticateUser(username, password) {
   const users = await User.find({ username });
   if (users.length) {
     const user = users[0];
-    console.log('user password hash: ', user.password);
     const samePassword = await checkPassword(password, user.password);
     return samePassword;
   }
