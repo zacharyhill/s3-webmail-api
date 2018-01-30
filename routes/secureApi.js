@@ -3,6 +3,8 @@ const Mail = require('../models/mail');
 const { Router } = require('express');
 const s3etm = require('s3-emails-to-mongo');
 
+const verifyToken = require('./routes/verifyToken');
+
 const secureRoutes = Router();
 
 // MAKE THIS PART DYNAMIC LATER
@@ -51,16 +53,7 @@ secureRoutes.use((req, res, next) => {
 ** START ROUTES
 */
 // check if token has been verified 
-secureRoutes.get('/verifyToken', (req, res) => {
-  /*
-  ** this will only be reached if our middleware calls
-  ** the next() argument - as it does when the token is
-  ** set and verified
-  */
-  res.json({
-    verified: true,
-  });
-});
+secureRoutes.get('/verifyToken', verifyToken);
 
 // gets mail already indexed in database
 secureRoutes.get('/mail', async (req, res) => {
