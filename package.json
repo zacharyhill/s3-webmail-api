@@ -18,6 +18,6 @@
     "express": "^4.16.2",
     "jsonwebtoken": "^8.1.0",
     "mongoose": "^5.0.1",
-    "s3-emails-to-mongo": "^2.2.3"
+    "s3-emails-to-mongo": "^2.2.4"
   }
 }
