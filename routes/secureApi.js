@@ -22,10 +22,10 @@ secureRoutes.use(verifyTokenMiddleware);
 // check if token has been verified 
 secureRoutes.get('/checkToken', checkToken);
 
-// gets mail already indexed in database
+// get mail already indexed in database
 secureRoutes.get('/mail', getMailFromDB);
 
-// checks for new mail and indexes it in db
+// check for new mail and index it in db
 secureRoutes.get('/newMail', getNewMail);
 
 
