@@ -6,8 +6,10 @@ module.exports = (req, res, next) => {
   ** or in the url in the form of "?token=${token}", now we can access the token
   ** anywhere in our app by calling "process.env.TOKEN"
   */
-    const token = req.headers['x-access-token'] || req.query.token;
+    const token = req.headers['token'] || req.query.token;
     process.env.TOKEN = token;
+
+    console.log('token: ', req.headers['token']);
   
     /*
     ** checks if token exists and if it has been signed as expected
