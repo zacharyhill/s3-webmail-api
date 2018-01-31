@@ -8,8 +8,6 @@ module.exports = (req, res, next) => {
   */
     const token = req.headers['token'] || req.query.token;
     process.env.TOKEN = token;
-
-    console.log('token: ', req.headers['token']);
   
     /*
     ** checks if token exists and if it has been signed as expected
