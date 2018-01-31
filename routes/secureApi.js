@@ -30,7 +30,7 @@ secureRoutes.get('/newMail', getNewMail);
 ** PATCH ROUTES
 */
 // mark as read/unread
-secureRoutes.patch('/changeReadStatus/:read', changeReadStatus);
+secureRoutes.patch('/changeReadStatus/:id/:read', changeReadStatus);
 
 /*
 ** POST ROUTES

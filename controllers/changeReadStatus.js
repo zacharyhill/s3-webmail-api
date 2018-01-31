@@ -1,5 +1,15 @@
+const Mail = require('../models/mail');
+
 module.exports = async (req, res, next) => {
-  res.json({
-    message: 'not ready yet but going to be soon',
-  });
+  try {
+    const readStatus = req.params.read;
+    const id = req.params.id;
+    const mail = await Mail.findByIdAndUpdate(id, { read: readStatus });
+    // mail.read = readStatus;
+    // const response = await mail.save();
+    res.json(mail);
+  }
+  catch(err) {
+    next(err);
+  }
 };

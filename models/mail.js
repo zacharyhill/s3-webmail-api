@@ -14,4 +14,5 @@ module.exports = mongoose.model('Mail', new Schema({
   html: String,
   text: String,
   attachments: Array,
+  read: Boolean,
 }));
