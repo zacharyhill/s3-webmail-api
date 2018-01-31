@@ -3,6 +3,7 @@ const { Router } = require('express');
 // route controllers
 const changeReadStatus = require('../controllers/changeReadStatus');
 const checkToken = require('../controllers/checkToken');
+const deleteFromDB = require('../controllers/deleteFromDB');
 const getMailFromDB = require('../controllers/getMailFromDB');
 const getNewMail = require('../controllers/getNewMail');
 const sendMail = require('../controllers/sendMail');
@@ -44,8 +45,8 @@ secureRoutes.post('/mail', sendMail);
 /*
 ** DELETE ROUTES
 */
-// // delete mail from db
-// secureRoutes.delete('/delete', );
+// delete mail from db
+secureRoutes.delete('/mail/:id', deleteFromDB);
 
 
 module.exports = secureRoutes;
