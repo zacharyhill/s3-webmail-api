@@ -1,3 +1,4 @@
+var multer  = require('multer');
 const { Router } = require('express');
 
 // route controllers
@@ -7,6 +8,10 @@ const deleteFromDB = require('../controllers/deleteFromDB');
 const getMailFromDB = require('../controllers/getMailFromDB');
 const getNewMail = require('../controllers/getNewMail');
 const sendMail = require('../controllers/sendMail');
+const uploadFile = require('../controllers/uploadFile');
+
+// for file uploads
+var upload = multer({ dest: 'data/uploads/' }); // set each user to have their own dir eventually
 
 // route middleware
 const verifyTokenMiddleware = require('../controllers/middleware/verifyToken');
@@ -39,8 +44,8 @@ secureRoutes.patch('/changeReadStatus/:id/:read', changeReadStatus);
 */
 // send mail
 secureRoutes.post('/mail', sendMail);
-// // upload attachment
-// secureRoutes.post('/attachment', );
+// upload attachment
+secureRoutes.post('/attachment', upload.single('file'), uploadFile);
 
 /*
 ** DELETE ROUTES
