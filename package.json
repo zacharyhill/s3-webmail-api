@@ -13,6 +13,7 @@
   ],
   "author": "zachary hill <zach@zacharyhill.xyz>",
   "dependencies": {
+    "aws-sdk": "^2.188.0",
     "bcrypt": "^1.0.3",
     "cors": "^2.8.4",
     "express": "^4.16.2",

@@ -5,6 +5,7 @@ const changeReadStatus = require('../controllers/changeReadStatus');
 const checkToken = require('../controllers/checkToken');
 const getMailFromDB = require('../controllers/getMailFromDB');
 const getNewMail = require('../controllers/getNewMail');
+const sendMail = require('../controllers/sendMail');
 
 // route middleware
 const verifyTokenMiddleware = require('../controllers/middleware/verifyToken');
@@ -35,8 +36,8 @@ secureRoutes.patch('/changeReadStatus/:id/:read', changeReadStatus);
 /*
 ** POST ROUTES
 */
-// // send mail
-// secureRoutes.post('/mail', );
+// send mail
+secureRoutes.post('/mail', sendMail);
 // // upload attachment
 // secureRoutes.post('/attachment', );
 
