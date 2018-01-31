@@ -1,6 +1,7 @@
 const { Router } = require('express');
 
 // route controllers
+const changeReadStatus = require('../controllers/changeReadStatus');
 const checkToken = require('../controllers/checkToken');
 const getMailFromDB = require('../controllers/getMailFromDB');
 const getNewMail = require('../controllers/getNewMail');
@@ -28,8 +29,8 @@ secureRoutes.get('/newMail', getNewMail);
 /*
 ** PATCH ROUTES
 */
-// // mark as read/unread
-// secureRoutes.patch('/changeReadStatus', );
+// mark as read/unread
+secureRoutes.patch('/changeReadStatus/:read', changeReadStatus);
 
 /*
 ** POST ROUTES
