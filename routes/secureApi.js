@@ -5,6 +5,7 @@ const { Router } = require('express');
 const changeReadStatus = require('../controllers/changeReadStatus');
 const checkToken = require('../controllers/checkToken');
 const deleteFromDB = require('../controllers/deleteFromDB');
+const downloadAttachment = require('../controllers/downloadAttachment');
 const getMailFromDB = require('../controllers/getMailFromDB');
 const getNewMail = require('../controllers/getNewMail');
 const sendMail = require('../controllers/sendMail');
@@ -30,8 +31,8 @@ secureRoutes.get('/checkToken', checkToken);
 secureRoutes.get('/mail', getMailFromDB);
 // check for new mail and index it in db
 secureRoutes.get('/newMail', getNewMail);
-// // get attachment
-// secureRoutes.get('/attachment', );
+// download attachment
+secureRoutes.get('/attachment/:file', downloadAttachment);
 
 /*
 ** PATCH ROUTES
